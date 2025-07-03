@@ -5,7 +5,7 @@ public class PipesMoveScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public float pipeSpeed = 5;
-    
+    public float pipeDeleteRange = -35;
     void Start()
     {
         
@@ -15,5 +15,9 @@ public class PipesMoveScript : MonoBehaviour
     void Update()
     {
         transform.position += Vector3.left * pipeSpeed * Time.deltaTime;
+        if (transform.position.x < pipeDeleteRange)
+        {
+            Destroy(gameObject);
+        }
     }
 }
